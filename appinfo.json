@@ -1,0 +1,174 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "rax96max@gmail.com",
+    "longName": "Ohio Watch",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/3_9.png",
+                "name": "3_9",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/3_8.png",
+                "name": "3_8",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/3_7.png",
+                "name": "3_7",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/3_6.png",
+                "name": "3_6",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/3_5.png",
+                "name": "3_5",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/3_4.png",
+                "name": "3_4",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/3_3.png",
+                "name": "3_3",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/3_2.png",
+                "name": "3_2",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/3_1.png",
+                "name": "3_1",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/3_0.png",
+                "name": "3_0",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/2_5.png",
+                "name": "2_5",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/2_4.png",
+                "name": "2_4",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/2_3.png",
+                "name": "2_3",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/2_2.png",
+                "name": "2_2",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/2_1.png",
+                "name": "2_1",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/2_0.png",
+                "name": "2_0",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/1_9.png",
+                "name": "1_9",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/1_8.png",
+                "name": "1_8",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/1_7.png",
+                "name": "1_7",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/1_6.png",
+                "name": "1_6",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/1_5.png",
+                "name": "1_5",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/1_4.png",
+                "name": "1_4",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/1_3.png",
+                "name": "1_3",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/1_2.png",
+                "name": "1_2",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/1_1.png",
+                "name": "1_1",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/1_0.png",
+                "name": "1_0",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/0_2.png",
+                "name": "0_2",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/0_1.png",
+                "name": "0_1",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/0_0.png",
+                "name": "0_0",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/Block O Color Colon.png",
+                "name": "block_o_background",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "Ohio Watch",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
+    "uuid": "7dce760c-e1ff-42c7-b90d-b0561573b8dd",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
