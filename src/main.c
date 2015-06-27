@@ -10,6 +10,7 @@
 static Window *ohio_main_window;
 static BitmapLayer *block_o_layer;
 static GBitmap *block_o_bitmap;
+static GBitmap *ichigan_bitmap;
 
 #define TOTAL_DISPLAYED_DIGITS 4
 #define NUMBER_OF_DIGITS 10
@@ -205,6 +206,18 @@ static void display_value(unsigned short value, unsigned short row_number) {
 static void display_time(struct tm *tick_time) {
   display_value(get_display_hour(tick_time->tm_hour), 0);
   display_value(tick_time->tm_min, 1);
+	//Displays a subtle reminder on the hour
+	if(tick_time->tm_min % 60 == 0){
+		ichigan_bitmap = gbitmap_create_with_resource(RESOURCE_ID_Ichigan);
+		bitmap_layer_set_bitmap(block_o_layer, ichigan_bitmap);
+		gbitmap_destroy(block_o_bitmap);
+	}
+	//Reset's the clock after the subtle reminder
+	if(tick_time->tm_min % 60 == 1){
+		block_o_bitmap = gbitmap_create_with_resource(RESOURCE_ID_block_o_background);
+		bitmap_layer_set_bitmap(block_o_layer, block_o_bitmap);
+		gbitmap_destroy(ichigan_bitmap);
+	}
 }
 
 static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
@@ -226,11 +239,18 @@ static void main_window_load(Window *window) {
 }
 
 static void main_window_unload(Window *window){
+	time_t now = time(NULL);
+	struct tm *tick_time = localtime(&now);
 	for(int k = 0;k <  TOTAL_DISPLAYED_DIGITS; k++){
 		unload_digit_image_from_slot(k);
 	}
 	layer_remove_from_parent(bitmap_layer_get_layer(block_o_layer));
-	gbitmap_destroy(block_o_bitmap);
+	if(tick_time->tm_min % 60 == 0){
+		gbitmap_destroy(ichigan_bitmap);
+	}
+	else{
+		gbitmap_destroy(block_o_bitmap);
+	}
 	bitmap_layer_destroy(block_o_layer);
 }
 	
