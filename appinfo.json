@@ -9,8 +9,13 @@
     "resources": {
         "media": [
             {
-                "file": "images/Still Sucks.png",
+                "file": "images/Still Sucks BW.png",
                 "name": "Ichigan",
+                "type": "png"
+            },
+            {
+                "file": "images/Block O BW Colon.png",
+                "name": "block_o_background",
                 "type": "png"
             },
             {
@@ -157,11 +162,6 @@
                 "file": "images/0_0.png",
                 "name": "0_0",
                 "type": "png-trans"
-            },
-            {
-                "file": "images/Block O Color Colon.png",
-                "name": "block_o_background",
-                "type": "png"
             }
         ]
     },

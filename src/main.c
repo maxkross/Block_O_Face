@@ -257,6 +257,9 @@ static void main_window_unload(Window *window){
 	
 static void init(void) {
   ohio_main_window = window_create();
+	#ifdef PBL_BW
+		window_set_fullscreen(ohio_main_window,1);
+	#endif
 	window_set_window_handlers(ohio_main_window, (WindowHandlers) {
     .load = main_window_load,
     .unload = main_window_unload
