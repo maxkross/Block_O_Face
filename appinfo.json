@@ -9,6 +9,12 @@
     "resources": {
         "media": [
             {
+                "file": "images/Mini-Menu BW.png",
+                "menuIcon": true,
+                "name": "Menu_Icon",
+                "type": "png"
+            },
+            {
                 "file": "images/Still Sucks BW.png",
                 "name": "Ichigan",
                 "type": "png"
@@ -172,8 +178,8 @@
         "basalt"
     ],
     "uuid": "7dce760c-e1ff-42c7-b90d-b0561573b8dd",
-    "versionLabel": "1.1",
+    "versionLabel": "1.2",
     "watchapp": {
-        "watchface": false
+        "watchface": true
     }
 }
