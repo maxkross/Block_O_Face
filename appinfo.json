@@ -9,19 +9,52 @@
     "resources": {
         "media": [
             {
-                "file": "images/Mini-Menu BW.png",
+                "file": "images/Still Sucks.png",
+                "name": "Ichigan",
+                "targetPlatforms": [
+                    "basalt"
+                ],
+                "type": "png"
+            },
+            {
+                "file": "images/Mini-Menu.png",
                 "menuIcon": true,
-                "name": "Menu_Icon",
+                "name": "Mini_Menu",
+                "targetPlatforms": [
+                    "basalt"
+                ],
+                "type": "png"
+            },
+            {
+                "file": "images/Block O.png",
+                "name": "block_o_background",
+                "targetPlatforms": [
+                    "basalt"
+                ],
                 "type": "png"
             },
             {
                 "file": "images/Still Sucks BW.png",
                 "name": "Ichigan",
+                "targetPlatforms": [
+                    "aplite"
+                ],
                 "type": "png"
             },
             {
-                "file": "images/Block O BW Colon.png",
+                "file": "images/Mini-Menu-BW.png",
+                "name": "Mini_Menu",
+                "targetPlatforms": [
+                    "aplite"
+                ],
+                "type": "png"
+            },
+            {
+                "file": "images/Block O BW.png",
                 "name": "block_o_background",
+                "targetPlatforms": [
+                    "aplite"
+                ],
                 "type": "png"
             },
             {
@@ -178,7 +211,7 @@
         "basalt"
     ],
     "uuid": "7dce760c-e1ff-42c7-b90d-b0561573b8dd",
-    "versionLabel": "1.2",
+    "versionLabel": "1.3",
     "watchapp": {
         "watchface": true
     }

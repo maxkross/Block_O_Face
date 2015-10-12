@@ -7,11 +7,8 @@
 
 #include <pebble.h>
 
-//Creates main window and main layer
 static Window *ohio_main_window;
 static BitmapLayer *block_o_layer;
-
-//Creates background bitmaps
 static GBitmap *block_o_bitmap;
 static GBitmap *ichigan_bitmap;
 
@@ -78,7 +75,6 @@ static GBitmap *digit4_white;
 static BitmapLayer *digit4_black_layer;
 static BitmapLayer *digit4_white_layer;
 
-//Returns the hour based on user prefrence of 24hr or 12hr time display
 static unsigned short get_display_hour(unsigned short hour) {
   if (clock_is_24h_style()) {
     return hour;
@@ -91,7 +87,6 @@ static unsigned short get_display_hour(unsigned short hour) {
 
 }
 
-//Removes digit from specified slot
 static void unload_digit_image_from_slot(int slot_number) {
   
 		switch(slot_number){
@@ -208,37 +203,39 @@ static void display_value(unsigned short value, unsigned short row_number) {
   }
 }
 
-//Displays the current time
 static void display_time(struct tm *tick_time) {
   display_value(get_display_hour(tick_time->tm_hour), 0);
   display_value(tick_time->tm_min, 1);
 	//Displays a subtle reminder on the hour
 	if(tick_time->tm_min % 60 == 0){
-		ichigan_bitmap = gbitmap_create_with_resource(RESOURCE_ID_Ichigan);
 		gbitmap_destroy(block_o_bitmap);
+		ichigan_bitmap = gbitmap_create_with_resource(RESOURCE_ID_Ichigan);
 		bitmap_layer_set_bitmap(block_o_layer, ichigan_bitmap);
 	}
 	//Reset's the clock after the subtle reminder
 	if(tick_time->tm_min % 60 == 1){
-		block_o_bitmap = gbitmap_create_with_resource(RESOURCE_ID_block_o_background);
 		gbitmap_destroy(ichigan_bitmap);
+		block_o_bitmap = gbitmap_create_with_resource(RESOURCE_ID_block_o_background);
 		bitmap_layer_set_bitmap(block_o_layer, block_o_bitmap);
 	}
 }
 
-//Displays time on the minute
 static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   display_time(tick_time);
 }
 
 
-//Loads the watchface
 static void main_window_load(Window *window) {
 	time_t now = time(NULL);
   struct tm *tick_time = localtime(&now);
 	block_o_bitmap = gbitmap_create_with_resource(RESOURCE_ID_block_o_background);
 	block_o_layer = bitmap_layer_create(GRect(0,0,144,168));
 	bitmap_layer_set_bitmap(block_o_layer, block_o_bitmap);
+	#if defined(PBL_BW)
+  	bitmap_layer_set_compositing_mode(block_o_layer, GCompOpAssign);
+	#elif defined(PBL_COLOR)
+  	bitmap_layer_set_compositing_mode(block_o_layer, GCompOpSet);
+	#endif
 	layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(block_o_layer));
   display_time(tick_time);
 
@@ -246,7 +243,6 @@ static void main_window_load(Window *window) {
 	
 }
 
-//Unloads the watchface
 static void main_window_unload(Window *window){
 	time_t now = time(NULL);
 	struct tm *tick_time = localtime(&now);
@@ -254,19 +250,19 @@ static void main_window_unload(Window *window){
 		unload_digit_image_from_slot(k);
 	}
 	layer_remove_from_parent(bitmap_layer_get_layer(block_o_layer));
-	bitmap_layer_destroy(block_o_layer);
 	if(tick_time->tm_min % 60 == 0){
 		gbitmap_destroy(ichigan_bitmap);
 	}
 	else{
 		gbitmap_destroy(block_o_bitmap);
 	}
+	bitmap_layer_destroy(block_o_layer);
 }
 	
-//Initializes the watchface
+	
 static void init(void) {
   ohio_main_window = window_create();
-	#ifdef PBL_BW
+	#if defined(PBL_BW)
 		window_set_fullscreen(ohio_main_window,1);
 	#endif
 	window_set_window_handlers(ohio_main_window, (WindowHandlers) {
@@ -277,11 +273,9 @@ static void init(void) {
   window_stack_push(ohio_main_window, true);
 }
 
-//Deinitalizes the watchface
 static void deinit(void) {
   window_destroy(ohio_main_window);
 }
-
 
 int main(void) {
   init();
