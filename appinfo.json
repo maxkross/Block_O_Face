@@ -12,24 +12,8 @@
                 "file": "images/Still Sucks.png",
                 "name": "Ichigan",
                 "targetPlatforms": [
-                    "basalt"
-                ],
-                "type": "png"
-            },
-            {
-                "file": "images/Mini-Menu.png",
-                "menuIcon": true,
-                "name": "Mini_Menu",
-                "targetPlatforms": [
-                    "basalt"
-                ],
-                "type": "png"
-            },
-            {
-                "file": "images/Block O.png",
-                "name": "block_o_background",
-                "targetPlatforms": [
-                    "basalt"
+                    "basalt",
+                    "chalk"
                 ],
                 "type": "png"
             },
@@ -42,10 +26,29 @@
                 "type": "png"
             },
             {
+                "file": "images/Mini-Menu.png",
+                "menuIcon": true,
+                "name": "Mini_Menu",
+                "targetPlatforms": [
+                    "basalt",
+                    "chalk"
+                ],
+                "type": "png"
+            },
+            {
                 "file": "images/Mini-Menu-BW.png",
                 "name": "Mini_Menu",
                 "targetPlatforms": [
                     "aplite"
+                ],
+                "type": "png"
+            },
+            {
+                "file": "images/Block O.png",
+                "name": "block_o_background",
+                "targetPlatforms": [
+                    "basalt",
+                    "chalk"
                 ],
                 "type": "png"
             },
@@ -208,7 +211,8 @@
     "shortName": "Ohio Watch",
     "targetPlatforms": [
         "aplite",
-        "basalt"
+        "basalt",
+        "chalk"
     ],
     "uuid": "7dce760c-e1ff-42c7-b90d-b0561573b8dd",
     "versionLabel": "1.3",

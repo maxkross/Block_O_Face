@@ -229,7 +229,11 @@ static void main_window_load(Window *window) {
 	time_t now = time(NULL);
   struct tm *tick_time = localtime(&now);
 	block_o_bitmap = gbitmap_create_with_resource(RESOURCE_ID_block_o_background);
-	block_o_layer = bitmap_layer_create(GRect(0,0,144,168));
+	#if defined(PBL_RECT)
+		block_o_layer = bitmap_layer_create(GRect(0,0,144,168));
+	#elif defined(PBL_ROUND)
+		block_o_layer = bitmap_layer_create(GRect(18,6,144,168));
+	#endif
 	bitmap_layer_set_bitmap(block_o_layer, block_o_bitmap);
 	#if defined(PBL_BW)
   	bitmap_layer_set_compositing_mode(block_o_layer, GCompOpAssign);
