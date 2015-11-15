@@ -224,6 +224,19 @@ static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   display_time(tick_time);
 }
 
+static void bt_handler(bool connected) {
+  // Show current connection state
+  if (!connected) {
+    vibes_long_pulse();
+		psleep(1000);
+		vibes_long_pulse();
+		psleep(1000);
+		vibes_long_pulse();
+		psleep(1000);
+		vibes_long_pulse();
+	}
+}
+
 
 static void main_window_load(Window *window) {
 	time_t now = time(NULL);
@@ -265,6 +278,15 @@ static void init(void) {
 	#if defined(PBL_BW)
 		window_set_fullscreen(ohio_main_window,1);
 	#endif
+	
+	#ifdef PBL_SDK_2
+  bluetooth_connection_service_subscribe(bt_handler);
+	#elif PBL_SDK_3
+  connection_service_subscribe((ConnectionHandlers) {
+    .pebble_app_connection_handler = bt_handler
+  });
+	#endif
+	
 	window_set_window_handlers(ohio_main_window, (WindowHandlers) {
     .load = main_window_load,
     .unload = main_window_unload
